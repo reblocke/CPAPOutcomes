@@ -1,0 +1,723 @@
+Combined dataset: Severity of OSA
+severe      392
+moderate    293
+mild        291
+dtype: int64
+severe      0.401639
+moderate    0.300205
+mild        0.298156
+dtype: float64
+Meeting Targets dataset: Severity of OSA
+severe      242
+mild        179
+moderate    177
+dtype: int64
+severe      0.404682
+mild        0.299331
+moderate    0.295987
+dtype: float64
+Not Meeting Targets dataset: Severity of OSA
+severe      150
+moderate    116
+mild        112
+dtype: int64
+severe      0.396825
+moderate    0.306878
+mild        0.296296
+dtype: float64
+
+SYSTOLIC BP
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    680.000000
+mean     128.384103
+std       13.260603
+min       83.000000
+25%      119.862500
+50%      127.500000
+75%      136.050000
+max      190.000000
+dtype: float64
+At Goal:
+count    405.000000
+mean     129.260889
+std       13.403899
+min       83.000000
+25%      120.160000
+50%      128.620000
+75%      136.770000
+max      183.000000
+dtype: float64
+Not at goal:
+count    275.000000
+mean     127.092836
+std       12.963097
+min       94.750000
+25%      118.465000
+50%      126.730000
+75%      135.430000
+max      190.000000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=50277.0, pvalue=0.015701441404330965)
+
+POST RESULTS
+Whole dataset:
+count    680.000000
+mean     127.150618
+std       13.686664
+min       91.000000
+25%      118.000000
+50%      126.000000
+75%      135.712500
+max      182.000000
+dtype: float64
+At Goal:
+count    405.000000
+mean     127.898025
+std       13.946302
+min       91.000000
+25%      118.330000
+50%      126.000000
+75%      135.660000
+max      182.000000
+dtype: float64
+Not at goal:
+count    275.000000
+mean     126.049891
+std       13.243419
+min       94.000000
+25%      116.625000
+50%      125.120000
+75%      135.860000
+max      176.800000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=52338.5, pvalue=0.09143459167348239)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    680.000000
+mean      -1.233485
+std       13.097845
+min      -60.000000
+25%       -9.200000
+50%       -1.000000
+75%        6.430000
+max       47.950000
+dtype: float64
+Ttest_1sampResult(statistic=-2.455775129313366, pvalue=0.014307582692064981)
+95 percent CI: -2.22, -0.25
+
+Before/After, At goal:
+count    405.000000
+mean      -1.362864
+std       13.783031
+min      -54.660000
+25%      -10.000000
+50%       -1.880000
+75%        6.600000
+max       47.950000
+dtype: float64
+Ttest_1sampResult(statistic=-1.9899187994142484, pvalue=0.047273511891532234)
+95 percent CI: -2.7, -0.02
+
+Before/After, Not at goal:
+count    275.000000
+mean      -1.042945
+std       12.039991
+min      -60.000000
+25%       -8.790000
+50%       -0.330000
+75%        6.175000
+max       40.000000
+dtype: float64
+Ttest_1sampResult(statistic=-1.436487256494077, pvalue=0.15200452531152644)
+95 percent CI: -2.46, 0.38
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=-0.31238520919545915, pvalue=0.7548438407479012)
+
+The difference between groups is -0.32 [-2.33 to 1.69] (mean [95% CI])
+
+Diastolic BP
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    680.000000
+mean      76.787735
+std        8.438153
+min       46.330000
+25%       71.000000
+50%       77.140000
+75%       82.000000
+max      106.000000
+dtype: float64
+At Goal:
+count    405.000000
+mean      76.905531
+std        8.358969
+min       57.000000
+25%       71.000000
+50%       77.000000
+75%       82.310000
+max       98.330000
+dtype: float64
+Not at goal:
+count    275.000000
+mean      76.614255
+std        8.565787
+min       46.330000
+25%       71.120000
+50%       77.330000
+75%       81.730000
+max      106.000000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=55220.5, pvalue=0.42639489285544463)
+
+POST RESULTS
+Whole dataset:
+count    680.000000
+mean      75.775838
+std        9.043776
+min       44.000000
+25%       70.000000
+50%       76.000000
+75%       82.000000
+max      104.000000
+dtype: float64
+At Goal:
+count    405.000000
+mean      75.536370
+std        9.032439
+min       44.000000
+25%       70.000000
+50%       75.500000
+75%       81.500000
+max      102.000000
+dtype: float64
+Not at goal:
+count    275.000000
+mean      76.128509
+std        9.065372
+min       53.000000
+25%       70.000000
+50%       76.000000
+75%       82.000000
+max      104.000000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=53150.5, pvalue=0.15647616134297532)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    680.000000
+mean      -1.011897
+std        8.367922
+min      -31.000000
+25%       -5.832500
+50%       -1.000000
+75%        4.470000
+max       28.500000
+dtype: float64
+Ttest_1sampResult(statistic=-3.153357339632829, pvalue=0.001685169992780965)
+95 percent CI: -1.64, -0.38
+
+Before/After, At goal:
+count    405.000000
+mean      -1.369160
+std        8.619955
+min      -31.000000
+25%       -6.710000
+50%       -1.170000
+75%        4.400000
+max       28.500000
+dtype: float64
+Ttest_1sampResult(statistic=-3.1965159492429973, pvalue=0.0015003483731733907)
+95 percent CI: -2.21, -0.53
+
+Before/After, Not at goal:
+count    275.000000
+mean      -0.485745
+std        7.968580
+min      -28.340000
+25%       -5.000000
+50%       -0.660000
+75%        4.515000
+max       22.670000
+dtype: float64
+Ttest_1sampResult(statistic=-1.0108672554556182, pvalue=0.3129717961467793)
+95 percent CI: -1.43, 0.45
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=-1.3519204141422048, pvalue=0.17685158574115908)
+
+The difference between groups is -0.88 [-2.17 to 0.40] (mean [95% CI])
+
+SpO2
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    625.000000
+mean      94.682608
+std        1.974742
+min       84.000000
+25%       93.500000
+50%       95.000000
+75%       96.000000
+max      100.000000
+dtype: float64
+At Goal:
+count    375.000000
+mean      94.649787
+std        1.984926
+min       84.000000
+25%       93.365000
+50%       95.000000
+75%       96.000000
+max      100.000000
+dtype: float64
+Not at goal:
+count    250.000000
+mean      94.731840
+std        1.962307
+min       84.660000
+25%       93.750000
+50%       95.000000
+75%       96.000000
+max       98.580000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=45348.0, pvalue=0.24480701539639532)
+
+POST RESULTS
+Whole dataset:
+count    625.000000
+mean      95.012976
+std        1.970427
+min       87.620000
+25%       94.000000
+50%       95.000000
+75%       96.330000
+max      100.000000
+dtype: float64
+At Goal:
+count    375.000000
+mean      94.983733
+std        1.984522
+min       89.250000
+25%       93.875000
+50%       95.000000
+75%       96.000000
+max      100.000000
+dtype: float64
+Not at goal:
+count    250.000000
+mean      95.056840
+std        1.952238
+min       87.620000
+25%       94.000000
+50%       95.000000
+75%       96.475000
+max      100.000000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=45483.0, pvalue=0.26410105676194273)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    625.000000
+mean       0.330368
+std        1.905554
+min       -8.000000
+25%       -0.770000
+50%        0.250000
+75%        1.460000
+max       11.150000
+dtype: float64
+Ttest_1sampResult(statistic=4.334278430341391, pvalue=1.7044455706772578e-05)
+95 percent CI: 0.18, 0.48
+
+Before/After, At goal:
+count    375.000000
+mean       0.333947
+std        1.958639
+min       -8.000000
+25%       -0.840000
+50%        0.340000
+75%        1.500000
+max       11.150000
+dtype: float64
+Ttest_1sampResult(statistic=3.301705618162265, pvalue=0.0010535059275428341)
+95 percent CI: 0.14, 0.53
+
+Before/After, Not at goal:
+count    250.000000
+mean       0.325000
+std        1.826899
+min       -5.500000
+25%       -0.660000
+50%        0.170000
+75%        1.250000
+max       10.340000
+dtype: float64
+Ttest_1sampResult(statistic=2.812800133710575, pvalue=0.005302807220362983)
+95 percent CI: 0.1, 0.55
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=0.057456423535774244, pvalue=0.9542000405946531)
+
+The difference between groups is 0.01 [-0.30 to 0.31] (mean [95% CI])
+
+BMI
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    675.000000
+mean      34.911319
+std        8.372531
+min       16.100000
+25%       28.980000
+50%       33.750000
+75%       38.735000
+max       74.610000
+dtype: float64
+At Goal:
+count    406.000000
+mean      35.653522
+std        8.388574
+min       18.650000
+25%       29.377500
+50%       34.425000
+75%       39.932500
+max       74.610000
+dtype: float64
+Not at goal:
+count    269.000000
+mean      33.791115
+std        8.237745
+min       16.100000
+25%       28.140000
+50%       32.670000
+75%       37.760000
+max       65.260000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=46840.0, pvalue=0.0008706067989372019)
+
+POST RESULTS
+Whole dataset:
+count    675.000000
+mean      34.817511
+std        8.415620
+min       16.500000
+25%       29.140000
+50%       33.620000
+75%       38.810000
+max       81.000000
+dtype: float64
+At Goal:
+count    406.000000
+mean      35.678251
+std        8.359206
+min       19.200000
+25%       29.870000
+50%       34.680000
+75%       39.975000
+max       81.000000
+dtype: float64
+Not at goal:
+count    269.000000
+mean      33.518401
+std        8.348692
+min       16.500000
+25%       27.810000
+50%       32.400000
+75%       37.300000
+max       64.810000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=45071.0, pvalue=6.0434331539434216e-05)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    675.000000
+mean      -0.093807
+std        2.728506
+min      -15.300000
+25%       -1.080000
+50%        0.200000
+75%        1.330000
+max       11.370000
+dtype: float64
+Ttest_1sampResult(statistic=-0.8932317293685341, pvalue=0.37205190476842764)
+95 percent CI: -0.3, 0.11
+
+Before/After, At goal:
+count    406.000000
+mean       0.024729
+std        2.805046
+min      -15.300000
+25%       -1.100000
+50%        0.265000
+75%        1.387500
+max       11.370000
+dtype: float64
+Ttest_1sampResult(statistic=0.17763589011805572, pvalue=0.8590977458422178)
+95 percent CI: -0.25, 0.3
+
+Before/After, Not at goal:
+count    269.000000
+mean      -0.272714
+std        2.603663
+min      -10.900000
+25%       -1.010000
+50%        0.140000
+75%        1.130000
+max        6.770000
+dtype: float64
+Ttest_1sampResult(statistic=-1.7179022128949741, pvalue=0.08696949574082934)
+95 percent CI: -0.58, 0.04
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=1.387598519635442, pvalue=0.16571859278611703)
+
+The difference between groups is 0.30 [-0.12 to 0.72] (mean [95% CI])
+
+Creatinine
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    109.000000
+mean       1.073945
+std        0.513429
+min        0.490000
+25%        0.840000
+50%        0.970000
+75%        1.170000
+max        4.470000
+dtype: float64
+At Goal:
+count    61.000000
+mean      1.024918
+std       0.534611
+min       0.490000
+25%       0.760000
+50%       0.920000
+75%       1.090000
+max       4.470000
+dtype: float64
+Not at goal:
+count    48.000000
+mean      1.136250
+std       0.483523
+min       0.670000
+25%       0.900000
+50%       0.990000
+75%       1.210000
+max       3.510000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=1129.0, pvalue=0.02056557008491286)
+
+POST RESULTS
+Whole dataset:
+count    109.000000
+mean       1.055046
+std        0.338544
+min        0.480000
+25%        0.810000
+50%        1.010000
+75%        1.200000
+max        2.300000
+dtype: float64
+At Goal:
+count    61.000000
+mean      1.022787
+std       0.339549
+min       0.480000
+25%       0.770000
+50%       1.010000
+75%       1.170000
+max       2.250000
+dtype: float64
+Not at goal:
+count    48.000000
+mean      1.096042
+std       0.336324
+min       0.580000
+25%       0.890000
+50%       1.015000
+75%       1.215000
+max       2.300000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=1275.0, pvalue=0.12490575465894299)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    109.000000
+mean      -0.018899
+std        0.369382
+min       -2.440000
+25%       -0.070000
+50%        0.020000
+75%        0.100000
+max        0.470000
+dtype: float64
+Ttest_1sampResult(statistic=-0.5341681500126471, pvalue=0.5943230545650207)
+95 percent CI: -0.09, 0.05
+
+Before/After, At goal:
+count    61.000000
+mean     -0.002131
+std       0.354326
+min      -2.440000
+25%      -0.050000
+50%       0.010000
+75%       0.090000
+max       0.470000
+dtype: float64
+Ttest_1sampResult(statistic=-0.04697590763475315, pvalue=0.9626884406344531)
+95 percent CI: -0.09, 0.09
+
+Before/After, Not at goal:
+count    48.000000
+mean     -0.040208
+std       0.390420
+min      -2.310000
+25%      -0.082500
+50%       0.020000
+75%       0.102500
+max       0.420000
+dtype: float64
+Ttest_1sampResult(statistic=-0.7135178836680868, pvalue=0.47905358123315755)
+95 percent CI: -0.15, 0.07
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=0.532495376445209, pvalue=0.5954870234854022)
+
+The difference between groups is 0.04 [-0.10 to 0.18] (mean [95% CI])
+
+A1c
+
+
+BASELINE DEMOGRAPHICS: 
+Whole dataset:
+count    47.000000
+mean      6.460426
+std       1.121744
+min       4.800000
+25%       5.800000
+50%       6.200000
+75%       6.800000
+max      10.460000
+dtype: float64
+At Goal:
+count    26.000000
+mean      6.451154
+std       1.092078
+min       4.800000
+25%       5.800000
+50%       6.250000
+75%       6.737500
+max       9.600000
+dtype: float64
+Not at goal:
+count    21.000000
+mean      6.471905
+std       1.184511
+min       5.000000
+25%       5.800000
+50%       6.100000
+75%       6.800000
+max      10.460000
+dtype: float64
+Comparison (goal vs not at goal): 
+MannwhitneyuResult(statistic=272.0, pvalue=0.4957248668220195)
+
+POST RESULTS
+Whole dataset:
+count    47.000000
+mean      6.570213
+std       1.189065
+min       4.800000
+25%       5.800000
+50%       6.400000
+75%       7.050000
+max      11.000000
+dtype: float64
+At Goal:
+count    26.000000
+mean      6.657692
+std       1.148625
+min       4.800000
+25%       6.100000
+50%       6.450000
+75%       7.175000
+max       9.900000
+dtype: float64
+Not at goal:
+count    21.000000
+mean      6.461905
+std       1.257170
+min       5.200000
+25%       5.700000
+50%       6.200000
+75%       6.800000
+max      11.000000
+dtype: float64
+Comparison(goal vs not at goal): 
+MannwhitneyuResult(statistic=222.5, pvalue=0.1420879978120067)
+
+COMPARISONS PRE-POST CPAP
+Before/After, Whole dataset
+count    47.000000
+mean      0.109787
+std       0.754844
+min      -2.500000
+25%      -0.225000
+50%       0.150000
+75%       0.475000
+max       2.300000
+dtype: float64
+Ttest_1sampResult(statistic=0.997111465696113, pvalue=0.3239268709827817)
+95 percent CI: -0.1, 0.32
+
+Before/After, At goal:
+count    26.000000
+mean      0.206538
+std       0.936756
+min      -2.500000
+25%      -0.150000
+50%       0.300000
+75%       0.675000
+max       2.300000
+dtype: float64
+Ttest_1sampResult(statistic=1.124245593042713, pvalue=0.27158817935711477)
+95 percent CI: -0.15, 0.56
+
+Before/After, Not at goal:
+count    21.000000
+mean     -0.010000
+std       0.431729
+min      -1.000000
+25%      -0.300000
+50%       0.100000
+75%       0.200000
+max       0.800000
+dtype: float64
+Ttest_1sampResult(statistic=-0.10614470715600774, pvalue=0.9165249838215086)
+95 percent CI: -0.19, 0.17
+
+Comparison(goal vs not at goal): 
+Ttest_indResult(statistic=0.9772666604819514, pvalue=0.3336618468618989)
+
+The difference between groups is 0.22 [-0.23 to 0.66] (mean [95% CI])
