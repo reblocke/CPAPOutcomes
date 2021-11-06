@@ -61,7 +61,7 @@ min       94.750000
 max      190.000000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=50277.0, pvalue=0.015701441404330965)
+Ttest_indResult(statistic=2.0976381033306075, pvalue=0.03630676943863665)
 
 POST RESULTS
 Whole dataset:
@@ -95,7 +95,7 @@ min       94.000000
 max      176.800000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=52338.5, pvalue=0.09143459167348239)
+Ttest_indResult(statistic=2.0976381033306075, pvalue=0.03630676943863665)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -177,7 +177,7 @@ min       46.330000
 max      106.000000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=55220.5, pvalue=0.42639489285544463)
+Ttest_indResult(statistic=0.44150899769038515, pvalue=0.6589853189018409)
 
 POST RESULTS
 Whole dataset:
@@ -211,7 +211,7 @@ min       53.000000
 max      104.000000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=53150.5, pvalue=0.15647616134297532)
+Ttest_indResult(statistic=0.44150899769038515, pvalue=0.6589853189018409)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -293,7 +293,7 @@ min       84.660000
 max       98.580000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=45348.0, pvalue=0.24480701539639532)
+Ttest_indResult(statistic=-0.5085964001136994, pvalue=0.6112152051895807)
 
 POST RESULTS
 Whole dataset:
@@ -327,7 +327,7 @@ min       87.620000
 max      100.000000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=45483.0, pvalue=0.26410105676194273)
+Ttest_indResult(statistic=-0.5085964001136994, pvalue=0.6112152051895807)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -409,7 +409,7 @@ min       16.100000
 max       65.260000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=46840.0, pvalue=0.0008706067989372019)
+Ttest_indResult(statistic=2.844313215553554, pvalue=0.004585891915655154)
 
 POST RESULTS
 Whole dataset:
@@ -443,7 +443,7 @@ min       16.500000
 max       64.810000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=45071.0, pvalue=6.0434331539434216e-05)
+Ttest_indResult(statistic=2.844313215553554, pvalue=0.004585891915655154)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -525,7 +525,7 @@ min       0.670000
 max       3.510000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=1129.0, pvalue=0.02056557008491286)
+Ttest_indResult(statistic=-1.1252430121047508, pvalue=0.2630037945732179)
 
 POST RESULTS
 Whole dataset:
@@ -559,7 +559,7 @@ min       0.580000
 max       2.300000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=1275.0, pvalue=0.12490575465894299)
+Ttest_indResult(statistic=-1.1252430121047508, pvalue=0.2630037945732179)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -641,7 +641,7 @@ min       5.000000
 max      10.460000
 dtype: float64
 Comparison (goal vs not at goal): 
-MannwhitneyuResult(statistic=272.0, pvalue=0.4957248668220195)
+Ttest_indResult(statistic=-0.06236446495002455, pvalue=0.9505487786343056)
 
 POST RESULTS
 Whole dataset:
@@ -675,7 +675,7 @@ min       5.200000
 max      11.000000
 dtype: float64
 Comparison(goal vs not at goal): 
-MannwhitneyuResult(statistic=222.5, pvalue=0.1420879978120067)
+Ttest_indResult(statistic=-0.06236446495002455, pvalue=0.9505487786343056)
 
 COMPARISONS PRE-POST CPAP
 Before/After, Whole dataset
@@ -721,3 +721,49 @@ Comparison(goal vs not at goal):
 Ttest_indResult(statistic=0.9772666604819514, pvalue=0.3336618468618989)
 
 The difference between groups is 0.22 [-0.23 to 0.66] (mean [95% CI])
+
+
+Systolic BP info dataset: Severity of OSA
+severe      272
+mild        205
+moderate    203
+dtype: int64
+severe      0.400000
+mild        0.301471
+moderate    0.298529
+dtype: float64
+No Systolic BP info dataset: Severity of OSA
+severe      120
+moderate     90
+mild         86
+dtype: int64
+severe      0.405405
+moderate    0.304054
+mild        0.290541
+dtype: float64
+incomplete BP info: Age
+count    296.000000
+mean      52.689189
+std       14.457114
+min       21.000000
+25%       41.750000
+50%       54.000000
+75%       63.000000
+max       95.000000
+Name: CPAP_DME_REQUEST_PAT_AGE, dtype: float64
+complete BP info: Age
+count    680.000000
+mean      55.052941
+std       14.280387
+min       19.000000
+25%       45.000000
+50%       55.000000
+75%       65.000000
+max       91.000000
+Name: CPAP_DME_REQUEST_PAT_AGE, dtype: float64
+Ttest_indResult(statistic=2.3681301876633922, pvalue=0.018072693492407785)
+MannwhitneyuResult(statistic=91979.0, pvalue=0.01618216257572851)
+Not at goal; incomplete BP info: n=103
+Not at goal; complete BP info: n=275
+At goal; incomplete BP info: n=193
+At goal; complete BP info: n=405
