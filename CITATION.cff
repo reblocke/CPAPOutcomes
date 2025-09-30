@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this software or reproduce results from the paper, please cite the article below."
+type: software
+title: CPAPOutcomes
+authors:
+  - given-names: Brian W.
+    family-names: Locke
+repository-code: "https://github.com/reblocke/CPAPOutcomes"
+commit: "f64bc309860a34a8e6153da438086896c218486f"
+date-released: "2021-11-06"
+keywords:
+  - obstructive sleep apnea
+  - CPAP
+  - electronic health record
+  - positive airway pressure
+  - reproducible research
+preferred-citation:
+  type: article
+  title: "Electronic health record–derived outcomes in obstructive sleep apnea managed with positive airway pressure tracking systems"
+  authors:
+    - given-names: Brian W.
+      family-names: Locke
+    - given-names: Sarah E.
+      family-names: Neill
+    - given-names: Heather E.
+      family-names: Howe
+    - given-names: Michael C.
+      family-names: Crotty
+    - given-names: Jaewhan
+      family-names: Kim
+    - given-names: Krishna M.
+      family-names: Sundar
+  year: 2022
+  journal: Journal of Clinical Sleep Medicine
+  volume: "18"
+  issue: "3"
+  start: "885"
+  end: "894"
+  doi: 10.5664/jcsm.9750
+  url: "https://jcsm.aasm.org/doi/10.5664/jcsm.9750"
