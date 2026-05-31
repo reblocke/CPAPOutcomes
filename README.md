@@ -27,3 +27,42 @@ If you use this code or reproduce results, please cite the paper:
   doi     = {10.5664/jcsm.9750},
   pmcid   = {PMC8883092}
 }
+
+## LLM and Repository Readiness Notes
+
+### Description
+Electronic health record-derived outcomes in obstructive sleep apnea managed with positive airway pressure tracking systems
+
+### Instructions
+Start with this README, then inspect the files listed under Repository Layout. For computational workflows, run commands from the repository root and avoid committing generated outputs unless a release explicitly calls for them.
+
+### Authors, Funding, and Acknowledgments
+Maintainer: Brian W. Locke (`@reblocke`, ORCID 0000-0002-3588-5238). Preserve any project-specific author, funding, and acknowledgment details already listed elsewhere in the repository or accompanying publication.
+
+### Repository Layout
+- `CITATION.cff`
+- `CPAPOutcomeStats.py`
+- `README.md`
+- `combined difference histos.png`
+- `output.txt`
+
+### Data and Codebook
+Clinical EHR-derived data likely restricted; verify no PHI
+
+### Workflow / Script Order
+Review README-defined Python workflow
+
+### Dependencies / Environment
+Python dependency files if present
+
+### Citation
+Preferred scholarly citation: https://doi.org/10.5664/jcsm.9750. Cite this repository with the GitHub URL and the commit or release used.
+
+### License
+MIT License for repository code; see `LICENSE`. Third-party data, publisher text, and restricted clinical data are excluded.
+
+### Manuscript Status
+No public manuscript Markdown audited yet; use DOI pending accepted-version check Publisher text not copied; license missing in first audit
+
+### Contact
+Maintainer: Brian W. Locke (`@reblocke`). Use GitHub issues or pull requests for repository-specific questions when the repository is public.
