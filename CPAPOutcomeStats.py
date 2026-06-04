@@ -1,3 +1,8 @@
+import argparse
+from contextlib import redirect_stdout
+from pathlib import Path
+import sys
+
 import pandas as pd
 import numpy as np
 import scipy.stats as stats
@@ -9,7 +14,75 @@ import seaborn as sns
 from math import sqrt
 from matplotlib_venn import venn2
 
-def stratify_by_goals():
+
+DEFAULT_INPUT_DIR = Path("data/private")
+DEFAULT_OUTPUT_DIR = Path("outputs/python")
+DEFAULT_COMBINED_WORKBOOK = DEFAULT_INPUT_DIR / "Full n977 (minus UARS) w dAHI use and outcomes.xlsm"
+DEFAULT_AT_GOAL_WORKBOOK = DEFAULT_INPUT_DIR / "Full (minus UARS) meeting goals.xlsx"
+DEFAULT_NOT_GOAL_WORKBOOK = DEFAULT_INPUT_DIR / "Full (minus UARS) not meeting goals.xlsx"
+
+
+class Tee:
+    def __init__(self, *streams):
+        self.streams = streams
+
+    def write(self, data):
+        for stream in self.streams:
+            stream.write(data)
+        return len(data)
+
+    def flush(self):
+        for stream in self.streams:
+            stream.flush()
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Run the legacy CPAP outcomes analysis on local restricted workbooks."
+    )
+    parser.add_argument(
+        "--combined-input",
+        type=Path,
+        default=DEFAULT_COMBINED_WORKBOOK,
+        help="Combined restricted workbook with all expected sheets.",
+    )
+    parser.add_argument(
+        "--at-goal-input",
+        type=Path,
+        default=DEFAULT_AT_GOAL_WORKBOOK,
+        help="Restricted workbook subset for participants meeting CPAP tracking goals.",
+    )
+    parser.add_argument(
+        "--not-at-goal-input",
+        type=Path,
+        default=DEFAULT_NOT_GOAL_WORKBOOK,
+        help="Restricted workbook subset for participants not meeting CPAP tracking goals.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=DEFAULT_OUTPUT_DIR,
+        help="Directory for generated text and figure outputs.",
+    )
+    parser.add_argument(
+        "--output-text",
+        type=Path,
+        default=None,
+        help="Optional text-output path. Defaults to OUTPUT_DIR/output.txt.",
+    )
+    return parser.parse_args()
+
+
+def require_workbooks(paths):
+    missing = [str(path) for path in paths if not path.exists()]
+    if missing:
+        raise FileNotFoundError(
+            "Missing required restricted workbook(s): {missing}. Supply local de-identified workbooks with "
+            "--combined-input, --at-goal-input, and --not-at-goal-input.".format(missing=", ".join(missing))
+        )
+
+
+def stratify_by_goals(input_workbook=DEFAULT_COMBINED_WORKBOOK, output_dir=DEFAULT_OUTPUT_DIR):
     """Utility Function -
     Splits the dataset into two xlsx spreadsheets - 1 containing patients who are meeting treatment gaols and another
     containing patients who are not meeting goals.
@@ -18,11 +91,10 @@ def stratify_by_goals():
     time that those downloads summarize)
     2. a machine measured AHI (AHI_flow) of less than 5 while on treatment"""
 
-    sheets_df = pd.read_excel(io='~/PycharmProjects/CPAPOutcomes/Full n977 (minus UARS) w dAHI use and outcomes.xlsm',
-                              sheet_name=None)
-    population_df = pd.read_excel(
-        io='~/PycharmProjects/CPAPOutcomes/Full n977 (minus UARS) w dAHI use and outcomes.xlsm',
-        sheet_name='Population')
+    require_workbooks([input_workbook])
+    output_dir.mkdir(parents=True, exist_ok=True)
+    sheets_df = pd.read_excel(io=input_workbook, sheet_name=None)
+    population_df = pd.read_excel(io=input_workbook, sheet_name='Population')
     meets_goals_df = population_df.loc[
         (population_df['MACHINE_AHI_AFTER'] < 5) & (population_df['AHI_AFTER_AVERAGE_HRS'] > 4)]
     not_at_goal_df = population_df.loc[
@@ -32,30 +104,27 @@ def stratify_by_goals():
     not_at_goal = not_at_goal_df['PAT_ID']  # Contains all the patient IDs that are NOT meeting treatment goals
 
     # Create excel spreadsheet that just contains the PAT_ID of patients who are, and are not, at goal
-    with pd.ExcelWriter('PAT_IDs of goal or not.xlsx') as writer:
+    with pd.ExcelWriter(output_dir / 'PAT_IDs of goal or not.xlsx') as writer:
         pat_ids_goal.to_excel(writer, sheet_name="At goal")
         not_at_goal.to_excel(writer, sheet_name="Not at goal")
-        writer.save()
 
     # Create Excel Spreadsheet with patients who are at goal
-    with pd.ExcelWriter('Full (minus UARS) meeting goals.xlsx') as writer:
+    with pd.ExcelWriter(output_dir / 'Full (minus UARS) meeting goals.xlsx') as writer:
         for sheetName in sheets_df:
             # Includes all rows where the PAT_ID is in the listed of PAT_ID's who meet goal machine AHI and usage
             temp_df = sheets_df[sheetName].loc[sheets_df[sheetName]["PAT_ID"].isin(pat_ids_goal)]
 
             temp_df.to_excel(writer, sheet_name=sheetName)
             print("Meets goals: Completed " + sheetName)
-        writer.save()
 
     # Create Excel Spreadsheet with patients who are not at goal
-    with pd.ExcelWriter('Full (minus UARS) not meeting goals.xlsx') as writer:
+    with pd.ExcelWriter(output_dir / 'Full (minus UARS) not meeting goals.xlsx') as writer:
         for sheetName in sheets_df:
             # Includes all rows where the PAT_ID is in the listed of PAT_ID's who DON'T meet goal machine AHI and usage
             temp_df = sheets_df[sheetName].loc[~sheets_df[sheetName]["PAT_ID"].isin(pat_ids_goal)]
 
             temp_df.to_excel(writer, sheet_name=sheetName)
             print("Not meeting goals: Completed " + sheetName)
-        writer.save()
 
 
 def before_after_diff(row):
@@ -267,10 +336,9 @@ def ttest_ind_CI(dist1, dist2):
         diff_mean, diff_mean - MoE, diff_mean + MoE))
 
 
-def main():
-    combined_db = '~/Box Sync/Residency Personal Files/Scholarly Work/CPAP Outcomes/Databases/Working/Full n977 (minus UARS) w dAHI use and outcomes.xlsm'
-    at_goal_db = '~/Box Sync/Residency Personal Files/Scholarly Work/CPAP Outcomes/Databases/Working/Full (minus UARS) meeting goals.xlsx'
-    not_goal_db = '~/Box Sync/Residency Personal Files/Scholarly Work/CPAP Outcomes/Databases/Working/Full (minus UARS) not meeting goals.xlsx'
+def run_analysis(combined_db, at_goal_db, not_goal_db, output_dir):
+    require_workbooks([combined_db, at_goal_db, not_goal_db])
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     combined_df = pd.read_excel(io=combined_db, sheet_name=None)
     at_goal_df = pd.read_excel(io=at_goal_db, sheet_name=None)
@@ -386,7 +454,7 @@ def main():
         sns.distplot(data, ax=axes[1, 2])
     axes[1, 2].set(title="a1c pre-post difference", xlabel="change, percent", ylabel="relative frequency")
     f.tight_layout(rect=[0, 0, 1, 0.95])
-    plt.savefig("combined difference histos.png")
+    plt.savefig(output_dir / "combined difference histos.png")
     plt.close()
 
     # output
@@ -445,7 +513,17 @@ def main():
     print("At goal; incomplete BP info: n=" + str(len(at_goal_sys_missing_df['Population'])))
     print("At goal; complete BP info: n=" + str(len(at_goal_sys_present_df['Population'])))
 
-#chi squared test
+def main():
+    args = parse_args()
+    require_workbooks([args.combined_input, args.at_goal_input, args.not_at_goal_input])
+    output_text = args.output_text or args.output_dir / "output.txt"
+    output_text.parent.mkdir(parents=True, exist_ok=True)
+    with output_text.open("w", encoding="utf-8") as output_handle:
+        with redirect_stdout(Tee(sys.stdout, output_handle)):
+            run_analysis(args.combined_input, args.at_goal_input, args.not_at_goal_input, args.output_dir)
+
+
+# chi squared test
 
 if __name__ == '__main__':
     main()
