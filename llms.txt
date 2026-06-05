@@ -1,0 +1,65 @@
+# CPAPOutcomes
+
+Repository: https://github.com/reblocke/CPAPOutcomes
+Primary article: Electronic health record-derived outcomes in obstructive sleep apnea managed with positive airway pressure tracking systems
+DOI: https://doi.org/10.5664/jcsm.9750
+Journal record: https://jcsm.aasm.org/doi/10.5664/jcsm.9750
+PubMed: https://pubmed.ncbi.nlm.nih.gov/34725036/
+PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC8883092/
+PMID: 34725036
+PMCID: PMC8883092
+Paper-aligned commit: f64bc309860a34a8e6153da438086896c218486f
+
+## Purpose
+
+Legacy Python workflow for the CPAP outcomes paper. The script loads restricted EHR-derived Excel workbooks, compares pre/post CPAP measures, stratifies by PAP-tracking goal status, and produces aggregate text and figure outputs.
+
+## Public Files
+
+- `README.md`: human-facing project overview, run command, data restrictions, citation, and license.
+- `CPAPOutcomeStats.py`: legacy analysis script.
+- `CITATION.cff`: machine-readable repository and article citation metadata.
+- `data_dictionary.md` and `data_dictionary.csv`: expected workbook sheets, columns, and derived variables.
+- `AGENTS.md`: repository-specific instructions for coding agents.
+- `output.txt`: historical aggregate text output.
+- `combined difference histos.png`: historical aggregate figure.
+
+## Restricted Inputs
+
+Do not commit source workbooks. Default local paths are:
+
+- `data/private/Full n977 (minus UARS) w dAHI use and outcomes.xlsm`
+- `data/private/Full (minus UARS) meeting goals.xlsx`
+- `data/private/Full (minus UARS) not meeting goals.xlsx`
+
+Expected sheets: `Population`, `Systolic`, `Diastolic`, `SP02`, `BMI`, `CREAT`, and `HBA1C`.
+
+## Run Command
+
+```bash
+python CPAPOutcomeStats.py \
+  --combined-input "data/private/Full n977 (minus UARS) w dAHI use and outcomes.xlsm" \
+  --at-goal-input "data/private/Full (minus UARS) meeting goals.xlsx" \
+  --not-at-goal-input "data/private/Full (minus UARS) not meeting goals.xlsx" \
+  --output-dir outputs/python
+```
+
+Outputs are written under `outputs/python/` by default. Full execution requires restricted local workbooks. `python CPAPOutcomeStats.py --help` does not require data.
+
+## Data And License Boundaries
+
+Repository code and documentation are MIT licensed. Restricted clinical data, source workbooks, row-level derived outputs, third-party materials, and publisher-formatted article files are excluded. Link the DOI, PubMed, and PMC records instead of copying full article text into this repository.
+
+## Citation
+
+Preferred article citation: Locke BW, Neill SE, Howe HE, Crotty MC, Kim J, Sundar KM. Electronic health record-derived outcomes in obstructive sleep apnea managed with positive airway pressure tracking systems. J Clin Sleep Med. 2022;18(3):885-894. doi:10.5664/jcsm.9750.
+
+Use `CITATION.cff` for structured citation metadata and cite the repository commit or release used.
+
+## Agent Cautions
+
+- Treat `PAT_ID` and all workbooks as restricted.
+- Do not regenerate root-level `output.txt` or `combined difference histos.png` from private data without explicit review.
+- Keep generated outputs in ignored `outputs/`.
+- Preserve legacy analysis logic unless the change is explicitly scientific.
+- Validate CFF, README fences, and dictionary coverage before publishing changes.

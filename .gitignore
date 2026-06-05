@@ -1,0 +1,31 @@
+# Restricted clinical workbooks and local data
+data/
+*.xlsm
+*.xlsx
+PAT_IDs of goal or not.xlsx
+Full (minus UARS) meeting goals.xlsx
+Full (minus UARS) not meeting goals.xlsx
+Full n977 (minus UARS) w dAHI use and outcomes.xlsm
+
+# Generated outputs
+outputs/
+*.log
+*.tmp
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local OS/editor files
+.DS_Store
+.idea/
+.vscode/

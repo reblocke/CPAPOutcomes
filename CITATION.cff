@@ -2,12 +2,16 @@ cff-version: 1.2.0
 message: "If you use this software or reproduce results from the paper, please cite the article below."
 type: software
 title: CPAPOutcomes
+abstract: "Legacy Python analysis code for electronic health record-derived outcomes in obstructive sleep apnea managed with positive airway pressure tracking systems."
 authors:
   - given-names: Brian W.
     family-names: Locke
+    orcid: "https://orcid.org/0000-0002-3588-5238"
 repository-code: "https://github.com/reblocke/CPAPOutcomes"
+url: "https://github.com/reblocke/CPAPOutcomes"
 commit: "f64bc309860a34a8e6153da438086896c218486f"
 date-released: "2021-11-06"
+license: MIT
 keywords:
   - obstructive sleep apnea
   - CPAP
@@ -20,6 +24,7 @@ preferred-citation:
   authors:
     - given-names: Brian W.
       family-names: Locke
+      orcid: "https://orcid.org/0000-0002-3588-5238"
     - given-names: Sarah E.
       family-names: Neill
     - given-names: Heather E.
