@@ -13,6 +13,7 @@ This public repository contains legacy Python analysis code for the Journal of C
 - The tracked `output.txt` and `combined difference histos.png` are aggregate historical outputs. Do not replace them with outputs from restricted data unless the change is explicitly reviewed.
 
 ## How To Orient Quickly
+Consult only the entries relevant to the requested edit or run.
 
 1. Read `README.md` for scope, article identifiers, run command, data restrictions, citation, and license.
 2. Read `llms.txt` for a compact machine-readable summary and agent cautions.
@@ -37,8 +38,7 @@ Full execution should fail clearly if the restricted local workbooks are absent.
 
 ## Verification Before Publishing Changes
 
-- Run `python -m py_compile CPAPOutcomeStats.py`.
-- Run `python CPAPOutcomeStats.py --help`.
+- For script or CLI changes, run `python -m py_compile CPAPOutcomeStats.py` and `python CPAPOutcomeStats.py --help`. Documentation-only edits need affected-reference and whitespace checks; these static checks do not establish restricted-data reproduction.
 - Validate `CITATION.cff` after citation edits.
 - Parse `data_dictionary.csv` after dictionary edits.
 - Run `git diff --check`.
